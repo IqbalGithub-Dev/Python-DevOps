@@ -1,0 +1,24 @@
+name: Python Automated Tests
+
+on: [push] 
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install Pytest and Coverage
+        run: |
+          pip install pytest pytest-cov
+
+      - name: Run Tests with X-Ray
+        run: |
+          pytest --cov=math_Ops test_math_Ops.py --cov-report=term-missing
