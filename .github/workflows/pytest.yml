@@ -21,4 +21,4 @@ jobs:
 
       - name: Run Tests with X-Ray
         run: |
-          pytest --cov=math_Ops test_math_Ops.py --cov-report=term-missing
+          pytest --cov=. --cov-report=term-missing
